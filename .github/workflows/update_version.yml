@@ -25,6 +25,9 @@ jobs:
       - name: Update version in pyproject.toml
         run: |
           sed -i 's/version = "[^"]*"/version = "${{ steps.extract_version.outputs.version }}"/' pyproject.toml
+
+      - name: Display pyproject.toml after modification
+        run: cat pyproject.toml
           
       - name: Commit changes
         run: |
@@ -33,10 +36,10 @@ jobs:
           git checkout develop
           git pull origin develop
           git checkout -b update-version-${{ steps.extract_version.outputs.version }}
+          git branch  # 現在のブランチを確認
           git commit -am "Update version to ${{ steps.extract_version.outputs.version }}"
           git push origin update-version-${{ steps.extract_version.outputs.version }}
-      - name: Display pyproject.toml after modification
-        run: cat pyproject.toml
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
