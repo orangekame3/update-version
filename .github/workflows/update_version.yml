@@ -47,7 +47,7 @@ jobs:
           git checkout -b update-version-${{ steps.extract_version.outputs.version }}  # 新しいブランチを直接 develop から作成
           git add pyproject.toml
           git commit -m "Update version to ${{ steps.extract_version.outputs.version }}"
-          git push origin update-version-${{ steps.extract_version.outputs.version }}
+          git push origin -u update-version-${{ steps.extract_version.outputs.version }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
