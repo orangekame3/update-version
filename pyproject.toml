@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hoge"
-version = "0.1.0"
+version = "0.1.35"
 description = "hogehogehogehogehogehoge"
 authors = ["hoge <hoge[at]hoge.com>"]
 readme = "README.md"
