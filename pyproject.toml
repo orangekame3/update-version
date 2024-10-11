@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hoge"
+name = "hogehoge"
 version = "0.1.0"
 description = "hogehogehogehogehogehoge"
 authors = ["hoge <hoge[at]hoge.com>"]
