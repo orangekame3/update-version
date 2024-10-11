@@ -49,11 +49,11 @@ jobs:
           git commit -m "Update version to ${{ steps.extract_version.outputs.version }}"
           git push origin -u update-version-${{ steps.extract_version.outputs.version }}
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: update-version-${{ steps.extract_version.outputs.version }}
-          base: develop
-          title: "Update version to ${{ steps.extract_version.outputs.version }}"
-          body: "This PR updates the version in pyproject.toml to ${{ steps.extract_version.outputs.version }}."
+    #   - name: Create Pull Request
+    #     uses: peter-evans/create-pull-request@v5
+    #     with:
+    #       token: ${{ secrets.GITHUB_TOKEN }}
+    #       branch: update-version-${{ steps.extract_version.outputs.version }}
+    #       base: develop
+    #       title: "Update version to ${{ steps.extract_version.outputs.version }}"
+    #       body: "This PR updates the version in pyproject.toml to ${{ steps.extract_version.outputs.version }}."
