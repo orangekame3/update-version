@@ -44,6 +44,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b update-version-${{ steps.extract_version.outputs.version }} develop  # 新しいブランチを直接 develop から作成
+          git add pyproject.toml
           git commit -am "Update version to ${{ steps.extract_version.outputs.version }}"
           git push origin update-version-${{ steps.extract_version.outputs.version }}
 
