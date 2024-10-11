@@ -3,6 +3,8 @@ name: Update pyproject.toml Version
 on:
   issue_comment:
     types: [created]
+  pull_request_review_comment:
+    types: [created]
 
 jobs:
   update-version:
@@ -23,6 +25,7 @@ jobs:
       - name: Update version in pyproject.toml
         run: |
           sed -i 's/version = "[^"]*"/version = "${{ steps.extract_version.outputs.version }}"/' pyproject.toml
+          
       - name: Commit changes
         run: |
           git config --local user.name "github-actions[bot]"
